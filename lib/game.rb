@@ -14,7 +14,7 @@ class Game
 
 	def each_turn # method to ask for the case in the board
 		while @new_board.victory? == false
-			puts ">#{@current_player.name}, quel coup veux-tu jouer ? une lettre en miniscules entre a et c et un chiffre de 1 à 3"
+			puts ">#{@current_player.name}, quel coup veux-tu jouer ? STP, une lettre en miniscules entre a et c et un chiffre de 1 à 3"
 			choice = gets.chomp 
 			@new_board.boardcase_array.each do |boardcase| 
 					if boardcase.name_case == choice #compare 2 strings 

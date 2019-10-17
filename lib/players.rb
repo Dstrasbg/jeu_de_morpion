@@ -2,7 +2,7 @@
 
 class Player
 
-  attr_accessor :name, :sign #to read and write the instance varible
+  attr_accessor :name, :sign #to read and write the instance varible namean value, the sign X or O
   
     def initialize (name, sign)
       @name = name
