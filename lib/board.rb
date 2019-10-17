@@ -1,12 +1,12 @@
-#to initialize a board with 9 objects of Boardcase class + display the current board + to check victory
+#Class who stars a board with 9 objects of Boardcase class + display the current board + to check victory
 
-class Board
+class Board # with 9 cases
 
-	attr_accessor :boardcase_array, :count_turn, :cellules
+	attr_accessor :boardcase_array, :count_turn, :cellules ##to read and write the instance varible
 
-	def initialize 
+	def initialize #method to start a new board with an array
 		@boardcase_array = Array.new
-		@count_turn = 0 #to count the number of turn untill 9 (= match nul)
+		@count_turn = 0 #to count the number of turn untill 9, so it's a DRAW = match nul)
 		@a1 = Boardcase.new("a1"," ", 0)
 		@a2 = Boardcase.new("a2"," ", 1)
 		@a3 = Boardcase.new("a3"," ", 2) 
@@ -17,12 +17,11 @@ class Board
 		@c2 = Boardcase.new("c2"," ", 7)
 		@c3 = Boardcase.new("c3"," ", 8)
 
-		@boardcase_array << @a1 << @a2 << @a3 << @b1 << @b2 << @b3 << @c1 << @c2 << @c3
+		@boardcase_array << @a1 << @a2 << @a3 << @b1 << @b2 << @b3 << @c1 << @c2 << @c3 #to fulfill the array boardcase_array
 		drawing_board #to display the board
 	end
 
-
-	def drawing_board
+	def drawing_board #method to draw the board
 		@cellules = @boardcase_array.map{|x| x.content} #to put only the content of each boardcase in an array
     puts " "*6+" "*6 + "1" + " "*10 + "2" + " "*10 +"3"
     puts " "*6+"-"*34
@@ -41,7 +40,7 @@ class Board
     puts " "
   end
 
-  def victory?
+  def victory? #method to know when there is a winning
    	if  @cellules[0] == @cellules[1] && @cellules[1] == @cellules[2] && @cellules[0] != " " 
    		return true
   	elsif @cellules[3] == @cellules[4] && @cellules[4] == @cellules[5] && @cellules[3] != " "

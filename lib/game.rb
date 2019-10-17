@@ -2,7 +2,7 @@
 
 class Game
 
-	attr_accessor :player_array, :current_player, :new_board
+	attr_accessor :player_array, :current_player, :new_board #to read and write the instance varible
 
 	def initialize(player1, player2)
 		@player_array = Array.new #create an array with 2 players inside (usefull to change easaly the current player)
@@ -12,9 +12,9 @@ class Game
 		@new_board = Board.new
 	end 
 
-	def each_turn
+	def each_turn # method to ask for the case in the board
 		while @new_board.victory? == false
-			puts "#{@current_player.name}, quel coup veux-tu jouer ?"
+			puts ">#{@current_player.name}, quel coup veux-tu jouer ? une lettre en miniscules entre a et c et un chiffre de 1 à 3"
 			choice = gets.chomp 
 			@new_board.boardcase_array.each do |boardcase| 
 					if boardcase.name_case == choice #compare 2 strings 
@@ -29,8 +29,8 @@ class Game
 		end #end of while
 		
 		if @new_board.victory? == true
-			@current_player = (@player_array.reverse!)[0] #need to reverse the current player to get the real wiinner
-			puts "Le gagnant est #{current_player.name}"
+			@current_player = (@player_array.reverse!)[0] #need to reverse the current player to get the real winner
+			puts "Le gagnant est #{current_player.name} !!!"
 			else puts "Match nul !!!"
 		end	
 
